@@ -1,19 +1,9 @@
-import { useEffect, useRef} from "react";
-import { init } from "ityped";
+import { useEffect, useRef } from "react";
+import Typewriter from "typewriter-effect";
+
 import "./intro.scss";
 
 export default function Intro() {
-  const textRef = useRef();
-
-  useEffect(() => {
-    init(textRef.current, {
-      showCursor: false,
-      backDelay: 1500,
-      backSpeed: 60,
-      strings: ['Developer', 'Content manager']
-    });
-  });
-
   return (
     <div className="intro" id="intro">
       <div className="left">
@@ -27,7 +17,16 @@ export default function Intro() {
           <h1>Mohamed Awad</h1>
           <h4>Front End Developer</h4>
           <h3>
-            Freelance <span ref={textRef}></span>
+            Freelance {""}
+            <div style={{ display: "inline-flex" }}>
+              <Typewriter
+                options={{
+                  strings: ["Developer", "Designer"],
+                  autoStart: true,
+                  loop: true,
+                }}
+              />
+            </div>
           </h3>
         </div>
         <a href="#portfolio">

@@ -4,27 +4,27 @@ import "./portfolio.scss";
 import { featuredPorfolio, webPortfolio } from "../../data";
 
 export default function Portfolio() {
-  const [selected, setSelected] = useState("vanilla");
+  const [selected, setSelected] = useState("React");
   const [data, setData] = useState([]);
 
   const list = [
     {
-      id: "vanilla",
-      title: "Vanilla js",
-    },
-    {
       id: "React",
       title: "React js",
+    },
+    {
+      id: "vanilla",
+      title: "Vanilla js",
     },
   ];
 
   useEffect(() => {
     switch (selected) {
-      case "vanilla":
-        setData(featuredPorfolio);
-        break;
       case "React":
         setData(webPortfolio);
+        break;
+      case "vanilla":
+        setData(featuredPorfolio);
         break;
       default:
         setData(featuredPorfolio);
@@ -41,7 +41,7 @@ export default function Portfolio() {
             active={selected === item.id}
             setSelected={setSelected}
             key={item.id}
-            id = {item.id}
+            id={item.id}
           />
         ))}
       </ul>

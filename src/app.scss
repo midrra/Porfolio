@@ -1,3 +1,4 @@
+@import "global.scss";
 .app {
   height: 100vh;
 }
@@ -10,10 +11,24 @@
   scroll-behavior: smooth;
   // scroll-snap-type: y mandatory;
   // scrollbar-width: none; //for firefox
-  // &::-webkit-scrollbar {
-    // display: none;
-    // background-color:rgba(0, 0, 0, 0.445);
-  // }
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: #eee;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: $mainColor;
+    border-radius: 50px;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #090118;
+  }
 
   > * {
     // width: 100vw;

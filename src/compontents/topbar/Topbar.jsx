@@ -3,17 +3,19 @@ import "./topbar.scss";
 import MailIcon from "@mui/icons-material/Mail";
 // import { Person, Mail } from "@material-ui/icons";
 import PersonIcon from "@mui/icons-material/Person";
+import { Link } from "react-router";
 
-export default function Topbar({ menuOpen, setMenuOpen,showCv }) {  return (
+export default function Topbar({ menuOpen, setMenuOpen, showCv }) {
+  return (
     <div className={"topbar " + (menuOpen && "active")}>
       <div className="wrapper">
         <div className="left">
-          <a href="#intro" className="logo">
+          <Link to="/" className="logo">
             ROM.
-          </a>
+          </Link>
           <div className="itemContainer">
             <PersonIcon className="icon" />
-            <span>+249 904 140 471</span>
+            <span>+20 1024889637</span>
           </div>
           <div className="itemContainer">
             <MailIcon className="icon" />
@@ -21,9 +23,26 @@ export default function Topbar({ menuOpen, setMenuOpen,showCv }) {  return (
           </div>
         </div>
         <div className="right">
-          {!showCv&&<div className="skills-top"><a href="google.com" target="_blank">Skills</a></div>}
-          {!showCv&&<div className="about-top"><a href="facebook.com" target="_blank">About</a></div>}
-          {!showCv&&<button className={menuOpen&&"active"}><a href="www.google.com" target="_blank">Download CV</a></button>}
+          {!showCv && (
+            <div className="skills-top">
+              <Link to="/skills">Skills</Link>
+            </div>
+          )}
+          {!showCv && (
+            <div className="about-top">
+              <Link to="/about">About</Link>
+            </div>
+          )}
+          {!showCv && (
+            <button className={menuOpen && "active"}>
+              <a
+                href="https://drive.google.com/drive/home?dmr=1&ec=wgc-drive-hero-goto"
+                target="_blank"
+              >
+                Download CV
+              </a>
+            </button>
+          )}
           <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
             <span className="line1"></span>
             <span className="line2"></span>
