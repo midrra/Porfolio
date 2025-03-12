@@ -1,24 +1,27 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import "./Main.scss";
 import axios from "axios";
+import UserContext from "../../store/data";
 
 function MainPage() {
   const [inputValue, setInputValue] = useState("");
+  const [urlValue, setUrlValue] = useState("");
   const [file, setFile] = useState("");
+  const {projects} = useContext(UserContext)
 
 
   const submitHandler = async (e) => {
     e.preventDefault();
-  
-      if ((!file|| !inputValue)) {
-        alert("Please enter a project name and choose an image!");
-        return;
-      }
-  const formData = new FormData();
-  formData.append("image", file);
-  formData.append("name", inputValue);
 
-        try {
+    if (!file || !inputValue) {
+      alert("Please enter a project name and choose an image!");
+      return;
+    }
+    const formData = new FormData();
+    formData.append("image", file);
+    formData.append("name", inputValue);
+    formData.append("url", urlValue);
+    try {
       const res = await axios.post(
         "http://localhost:5000/dashboard/newproject",
         formData,
@@ -28,10 +31,11 @@ function MainPage() {
           },
         }
       );
-      console.log("working!", res.data);
-    setInputValue("");
+      projects(res.data);
+     
+      setInputValue("");
+      setUrlValue("");
       setFile(null);
-      
     } catch (error) {
       console.log(error);
     }
@@ -45,6 +49,12 @@ function MainPage() {
           onChange={(e) => setInputValue(e.target.value)}
           placeholder="Enter your new project name"
         />
+          <input
+          type="text"
+          value={urlValue}
+          onChange={(e) => setUrlValue(e.target.value)}
+          placeholder="Enter your URL"
+        />
         <input
           type="file"
           accept="image/*"
@@ -52,6 +62,7 @@ function MainPage() {
         />
         <button>Submit</button>
       </form>
+
     </div>
   );
 }

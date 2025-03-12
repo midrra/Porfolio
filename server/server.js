@@ -11,13 +11,12 @@ dotenv.config();
 app.use(cors());
 connectDB()
 
-// Configure where to save uploaded files
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "uploads/"); // folder name (make sure it exists)
+    cb(null, "uploads/"); 
   },
   filename: function (req, file, cb) {
-    cb(null, Date.now() + path.extname(file.originalname)); // unique file name
+    cb(null, Date.now() + path.extname(file.originalname));
   },
 });
 

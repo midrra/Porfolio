@@ -1,17 +1,16 @@
 import Porto from "../models/Porto.js";
+import path from 'path';
+import fs from 'fs'
 
-export const newProject = async(req,res,next)=>{
-    console.log(req.file);
-    console.log(req.body.name)
-    
+export const newProject = async(req,res,next)=>{ 
     try{
       const normalizedPath = req.file.path.replace(/\\/g, "/");
 
     await Porto.create({
       name:req.body.name,
+      url:req.body.url,
       image:normalizedPath,
     })
-
 
     res.json({ message: "File uploaded successfully", file: req.file })
   }catch(err){
@@ -25,7 +24,7 @@ export const newProject = async(req,res,next)=>{
 
 
 export const projects = async(req,res)=>{
-    const projects = await Porto.find();
+    const projects = await Porto.find().sort({ createdAt: -1 });
 try{
     const fullProjects = projects.map((p) => ({
       ...p._doc,
@@ -45,6 +44,14 @@ export const removeProject =async (req,res)=>{
     if (!project) {
       return res.status(404).json({ message: "Project not found" });
     }
+    const imagePath = path.join(project.image);
+    fs.unlink(imagePath, (err) => {
+      if (err) {
+        console.error("Error deleting image:", err.message);
+      } else {
+        console.log("Image deleted successfully:", imagePath);
+      }
+    });
 
     await Porto.findByIdAndDelete(req.params.id);
     return res.status(200).json("Project deleted successfully")
