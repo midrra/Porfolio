@@ -1,25 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect, useRef } from "react";
 
-function App() {
+import Menu from "./components/menu/Menu";
+import Topbar from "./components/topbar/Topbar";
+import Home from "./components/home/Home";
+import { Routes, Route } from "react-router";
+import About from "./pages/about/About";
+import Skills from "./pages/skills/Skills";
+import Porto from "./pages/Porto";
+import Testo from "./pages/Testo";
+import Cont from "./pages/Cont";
+import ErrorMessage from "./pages/ErrorMessage";
+import "./app.scss";
+
+const App = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [showCv, setShowcv] = useState(false);
+
+  useEffect(() => {
+    setInterval(() => {
+      const size = window.innerWidth;
+
+      if (size < 768) {
+        setShowcv(true);
+      } else {
+        setShowcv(false);
+      }
+    }, 100);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Topbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} showCv={showCv} />
+      <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} showCv={showCv} />
+      <div className="sections">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/skills" element={<Skills />} />
+          <Route path="/portfolio" element={<Porto />} />
+          <Route path="/testimonials" element={<Testo />} />
+          <Route path="/contact" element={<Cont />} />
+          <Route path="/*" element={<ErrorMessage />} />
+        </Routes>
+      </div>
     </div>
   );
-}
+};
 
 export default App;

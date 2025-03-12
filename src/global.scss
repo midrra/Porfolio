@@ -1,0 +1,42 @@
+$mainColor: #15023a;
+
+$desktopWidth:1200px;
+
+@mixin desktop { //tabelet
+  @media (max-width:$desktopWidth){
+    @content;
+  }
+}
+
+$tabletWidth:992px; //phone
+
+@mixin tablet{
+  @media(max-width:$tabletWidth){
+    @content;
+  }
+}
+
+$mobileWidth:768px;
+
+@mixin mobile{
+  @media(max-width:$mobileWidth){
+    @content;
+  }
+}
+
+$ExtramobileWidth:600px;
+
+@mixin Extramobile{
+  @media(max-width:$ExtramobileWidth){
+    @content;
+  }
+}
+
+
+$miniWidth:370px;
+
+@mixin minimobile{
+  @media(max-width:$miniWidth){
+    @content;
+  }
+}
