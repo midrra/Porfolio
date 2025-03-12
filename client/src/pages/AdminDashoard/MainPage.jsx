@@ -6,6 +6,7 @@ import UserContext from "../../store/data";
 function MainPage() {
   const [inputValue, setInputValue] = useState("");
   const [urlValue, setUrlValue] = useState("");
+  const [section,setSection] = useState("")
   const [file, setFile] = useState("");
   const {projects} = useContext(UserContext)
 
@@ -21,6 +22,7 @@ function MainPage() {
     formData.append("image", file);
     formData.append("name", inputValue);
     formData.append("url", urlValue);
+    formData.append("section", section);
     try {
       const res = await axios.post(
         "http://localhost:5000/dashboard/newproject",
@@ -35,7 +37,9 @@ function MainPage() {
      
       setInputValue("");
       setUrlValue("");
+      setSection("")
       setFile(null);
+      e.target.reset();
     } catch (error) {
       console.log(error);
     }
@@ -54,6 +58,12 @@ function MainPage() {
           value={urlValue}
           onChange={(e) => setUrlValue(e.target.value)}
           placeholder="Enter your URL"
+        />
+             <input
+          type="text"
+          value={section}
+          onChange={(e) => setSection(e.target.value)}
+          placeholder="Enter your Section"
         />
         <input
           type="file"

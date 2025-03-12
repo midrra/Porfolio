@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
 import PortfolioList from "../portfolioList/PortfolioList";
 import "./portfolio.scss";
-import { featuredPorfolio, webPortfolio, allApps } from "../../data";
 import Skeleton from "../Skeleton/Skeleton";
 import axios from "axios";
 
 export default function Portfolio() {
   const [selected, setSelected] = useState("All");
   const [data, setData] = useState([]);
-  const [ projects, setProjects ]= useState([]);
-  const [loading,setLoading] = useState(false);
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const list = [
     {
@@ -30,33 +29,35 @@ export default function Portfolio() {
     const getProjects = async () => {
       try {
         const res = await axios.get("http://localhost:5000/dashboard/projects");
-        setLoading(true)
-
-        console.log(res.data.fullProjects)
-        setProjects(res.data.fullProjects);
+       setProjects(res.data.fullProjects);
+       setLoading(true)
       } catch (err) {
-        setLoading(false)
+        setLoading(false);
         console.log(err);
       }
     };
     getProjects();
   }, []);
 
-  useEffect(() => {
-    switch (selected) {
-      case "All":
-        setData(allApps);
-        break;
-      case "React":
-        setData(webPortfolio);
-        break;
-      case "vanilla":
-        setData(featuredPorfolio);
-        break;
-      default:
-        setData(featuredPorfolio);
-    }
-  }, [selected]);
+ useEffect(() => {
+  const getAll = async () => {
+    setLoading(false);
+    try {
+      let url = "http://localhost:5000/dashboard/projects";
+      if (selected === "React") url += "?section=react";
+      if (selected === "vanilla") url += "?section=vanilla";
+
+      const res = await axios.get(url);
+      setProjects(res.data.fullProjects);
+      setLoading(true)
+    } catch (err) {
+      setLoading(false)
+      console.log(err);
+    } 
+  };
+  getAll();
+}, [selected]);
+
 
   return (
     <div className="portfolio" id="portfolio">
@@ -73,15 +74,7 @@ export default function Portfolio() {
         ))}
       </ul>
       <div className="container">
-        {/* {data.map((d) => (
-          <div className="item" key={d.id}>
-            <a href={d.ip} target="_blank">
-              <img src={d.img} alt="" />
-            </a>
-            <h3>{d.title}</h3>
-          </div>
-        ))} */}
-        {projects.map((d) => (
+           {projects.map((d) => (
           <div className="item" key={d?._id}>
             <a href={d?.url} target="_blank">
               <img src={d?.image} alt="" />
@@ -90,20 +83,22 @@ export default function Portfolio() {
           </div>
         ))}
       </div>
-      {!loading&&<div className="skeleton-cu">
-        <Skeleton />
-        <Skeleton />
-        <Skeleton />
-        <Skeleton />
-        <Skeleton />
-        <Skeleton />
-        <Skeleton />
-        <Skeleton />
-        <Skeleton />
-        <Skeleton />
-        <Skeleton />
-        <Skeleton />
-      </div>}
+      {!loading && (
+        <div className="skeleton-cu">
+          <Skeleton />
+          <Skeleton />
+          <Skeleton />
+          <Skeleton />
+          <Skeleton />
+          <Skeleton />
+          <Skeleton />
+          <Skeleton />
+          <Skeleton />
+          <Skeleton />
+          <Skeleton />
+          <Skeleton />
+        </div>
+      )}
     </div>
   );
 }
