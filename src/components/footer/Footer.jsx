@@ -10,7 +10,7 @@ const Footer = () => {
     <div className="footer" id="footer">
       <div className="social-media">
         <a
-          href="https://www.linkedin.com/in/mohamed-3wad"
+          href="https://www.linkedin.com/in/mohamed-awad-985616233/"
           target="_blank"
           rel="noopener noreferrer"
         >

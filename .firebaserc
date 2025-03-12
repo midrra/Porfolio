@@ -1,5 +1,9 @@
 {
   "projects": {
+<<<<<<< HEAD
     "default": "portfolio-app-deb9b"
+=======
+    "default": "join-499a3"
+>>>>>>> c5837ed (add favicon and add all button in the portfolio section)
   }
 }

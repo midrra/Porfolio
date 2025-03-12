@@ -14,7 +14,7 @@ export default function Topbar({ menuOpen, setMenuOpen, showCv }) {
           </Link>
           <div className="itemContainer">
             <PersonIcon className="icon" />
-            <a href="tel:+20 1024889637">+20 1024889637</a>
+            <span>+20 1024889637</span>
           </div>
           <div className="itemContainer">
             <MailIcon className="icon" />
@@ -33,14 +33,15 @@ export default function Topbar({ menuOpen, setMenuOpen, showCv }) {
             </div>
           )}
           {!showCv && (
-            <a
-              className="download"
-              href="https://drive.google.com/file/d/1lxrpYDtNzJVrWid1qRbKsbX7HmSEpW7Y/view?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <button className={menuOpen && "active"}>Download CV</button>
-            </a>
+               <a
+                href="/files/MOHAMED-AWAD-CV.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`btn-cont ${menuOpen && "active"}`}
+                download
+              >
+                Download CV
+              </a>
           )}
           <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
             <span className="line1"></span>

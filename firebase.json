@@ -6,6 +6,7 @@
       "**/.*",
       "**/node_modules/**"
     ],
+<<<<<<< HEAD
     "headers": [
       {
         "source": "/sitemap.xml",
@@ -26,6 +27,8 @@
         ]
       }
     ],
+=======
+>>>>>>> c5837ed (add favicon and add all button in the portfolio section)
     "rewrites": [
       {
         "source": "**",
