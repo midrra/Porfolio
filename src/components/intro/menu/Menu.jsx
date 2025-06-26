@@ -57,7 +57,7 @@ export default function Menu({ menuOpen, setMenuOpen, showCv }) {
           <li className="sp-btn" onClick={() => setMenuOpen(false)}>
             <button className={menuOpen && "active"}>
               <a
-                href="https://drive.google.com/drive/home?dmr=1&ec=wgc-drive-hero-goto"
+                href="https://drive.google.com/file/d/1lxrpYDtNzJVrWid1qRbKsbX7HmSEpW7Y/view?usp=sharing"
                 target="_blank"
               >
                 Download CV

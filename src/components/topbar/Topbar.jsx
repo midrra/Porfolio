@@ -33,15 +33,16 @@ export default function Topbar({ menuOpen, setMenuOpen, showCv }) {
             </div>
           )}
           {!showCv && (
-            <button className={menuOpen && "active"}>
               <a
-                href="https://drive.google.com/drive/folders/1I5Ca5ZhxlS79sWEFFZ-uuZPIK9EuY7zb?dmr=1&ec=wgc-drive-hero-goto"
+              className="download"
+                href="https://drive.google.com/file/d/1lxrpYDtNzJVrWid1qRbKsbX7HmSEpW7Y/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
               >
+              <button className={menuOpen && "active"}>
                 Download CV
+              </button>
               </a>
-            </button>
           )}
           <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
             <span className="line1"></span>
