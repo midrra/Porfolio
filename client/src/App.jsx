@@ -15,6 +15,16 @@ import MainPage from "./pages/AdminDashoard/MainPage"
 import Projects from "./pages/AdminDashoard/Projects";
 import UserContext from "./store/data";
 
+import Login from "./pages/login";
+import Signup from "./pages/signup";
+import Testing from "./pages/Testing";
+import Terms from "./pages/Terms";
+import AdminPage from "./pages/AdminPage";
+import ProtectedRoute from "./components/ProtectedRoute";
+import VerifyOtp from "./pages/VerifyOtp";
+
+
+
 const App = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showCv, setShowcv] = useState(false);
@@ -48,6 +58,30 @@ const App = () => {
           <Route path="/admin-dashoard" element={<MainPage />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/*" element={<ErrorMessage />} />
+
+          
+                <Route
+          path="/"
+          element={<ProtectedRoute>{<Testing />} </ProtectedRoute>}
+        />
+        <Route path="/terms-conditions" element={<Terms />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />}/>
+         
+        <Route path="/signup/verify-otp" element={<VerifyOtp />} />
+        <Route
+
+          path="admin-dashboard"
+          element={
+            <ProtectedRoute requiredRole="admin">
+              <AdminPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="*"
+          element={<div className="bg-red-600">404 Page Not Found</div>}
+        />
         </Routes>
       </div>
     </div>

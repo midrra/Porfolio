@@ -9,11 +9,24 @@ function MainPage() {
   const [section,setSection] = useState("")
   const [file, setFile] = useState("");
   const {projects} = useContext(UserContext)
+  alert("naem")
+
+     const email = prompt("Enter your email:");
+    const password = prompt("Enter your password:");
+
+    // Very simple check
+    if (email === "admin@example.com" && password === "123456") {
+      alert("Login successful!");
+      // navigate("/admin");
+    } else {
+      alert("Wrong email or password!");
+    }
 
 
   const submitHandler = async (e) => {
     e.preventDefault();
 
+   
     if (!file || !inputValue) {
       alert("Please enter a project name and choose an image!");
       return;
