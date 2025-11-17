@@ -57,10 +57,7 @@ export default function Contact() {
             <p>Let's create something togdhether</p>
             <div className="mail-me">
               <div className="image">
-                <img
-                  src={`${process.env.PUBLIC_URL}/photes/instagram.png`}
-                  alt="contact"
-                />
+                <img src="/photes/instagram.png" alt="contact" />
               </div>
               <div>
                 <h2>Mail me at</h2>

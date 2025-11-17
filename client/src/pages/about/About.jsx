@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import React , { Fragment } from "react";
 import Footer from "../../components/footer/Footer";
 import styles from "./about.module.scss";
 

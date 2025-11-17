@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { verifyOtp, signup } from "../api/auth";
+import { verifyOtp, signup } from "../../api/auth";
 import {
   InputOTP,
   InputOTPGroup,
   InputOTPSeparator,
   InputOTPSlot,
-} from "@/components/ui/input-otp";
-import { userContext } from "../lib/userContext";
-import Alert, { showError } from "../components/Alert";
+} from "@/components/Login/ui/input-otp";
+import { userContext } from "../../lib/userContext";
+import Alert, { showError } from "../../components/Login/Alert";
 import { useNavigate } from "react-router-dom";
 
 function VerifyOtp() {

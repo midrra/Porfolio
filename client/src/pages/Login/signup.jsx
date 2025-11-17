@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Slider from "../components/Slider";
+import Slider from "../../components/Login/Slider";
 import { Eye } from "lucide-react";
-import InputField from "../components/InputField";
+import InputField from "../../components/Login/InputField";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import { createOtp } from "../api/auth";
+import { createOtp } from "../../api/auth";
 import ReCAPTCHA from "react-google-recaptcha";
-import { Spinner } from "@/components/ui/spinner";
-import { GoogleLogin } from "../components/GoogleLogin";
-import Alert, { showError } from "../components/Alert";
-import { userContext } from "../lib/userContext";
+import { Spinner } from "@/components/Login/ui/spinner";
+import { GoogleLogin } from "../../components/Login/GoogleLogin";
+import Alert, { showError } from "../../components/Login/Alert";
+import { userContext } from "../../lib/userContext";
 // import FacebookLogin from "../components/FacebookLogin";
 
 function Login() {
@@ -228,14 +228,14 @@ function Login() {
 
                 {/* reCAPTCHA v2 */}
                 <div className="my-4">
-                  <ReCAPTCHA
+                  {/* <ReCAPTCHA
                     sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
                     onChange={(token) => {
                       setCaptchaToken(token);
                       if (token)
                         setCaptchaError((prev) => ({ ...prev, general: "" }));
                     }}
-                  />
+                  /> */}
                   <p className="text-red-500">{captchaError.general}</p>
                 </div>
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import api from "../api/axios";
-import Alert from "../components/Alert";
-import { Button } from "@/components/ui/button";
+import api from "../../api/axios";
+import Alert from "../../components/Login/Alert";
+import { Button } from "@/components/Login/ui/button";
 import { useNavigate } from "react-router-dom";
 
 

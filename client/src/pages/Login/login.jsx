@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Slider from "../components/Slider";
+import Slider from "../../components/Login/Slider";
 import { Eye } from "lucide-react";
-import InputField from "../components/InputField";
+import InputField from "../../components/Login/InputField";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import { login } from "../api/auth";
+import { login } from "../../api/auth";
 import ReCAPTCHA from "react-google-recaptcha";
-import { Spinner } from "@/components/ui/spinner";
-import { GoogleLogin } from "../components/GoogleLogin";
-import Alert, { showError } from "../components/Alert";
-import api from "../api/axios";
+import { Spinner } from "@/components/login/ui/spinner";
+import { GoogleLogin } from "../../components/Login/GoogleLogin";
+import Alert, { showError } from "../../components/login/Alert";
+import api from "../../api/axios";
 // import FacebookLogin from "../components/FacebookLogin";
 
 function Login() {
@@ -193,14 +193,14 @@ function Login() {
 
                 {/* reCAPTCHA v2 */}
                 <div className="my-4">
-                  <ReCAPTCHA
+                  {/* <ReCAPTCHA
                     sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
                     onChange={(token) => {
                       setCaptchaToken(token);
                       if (token)
                         setErrors((prev) => ({ ...prev, general: "" }));
                     }}
-                  />
+                  /> */}
                   <p className="text-red-500">{errors.general}</p>
                 </div>
 

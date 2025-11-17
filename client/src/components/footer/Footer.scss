@@ -1,4 +1,4 @@
-@import "../../global.scss";
+@use "../../global.scss" as *;
 
 .social-media{
   width: 25%;
@@ -23,14 +23,14 @@
   }
 
   .icon{
-    font-size: 40px;
+    font-size: 55px;
     padding: 3px 8px;
     color: $mainColor;
     cursor: pointer;
     transition: all 0.5s ease;
 
     @include mobile{
-      font-size:30px;
+      font-size:45px;
     }
 
     @include Extramobile {
@@ -52,6 +52,7 @@
   
   h1{
     font-size: 17px;
+    font-weight: bold;
 
     
     @include Extramobile {

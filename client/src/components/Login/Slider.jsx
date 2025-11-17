@@ -6,7 +6,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel";
+} from "@/components/Login/ui/carousel";
 
 function Slider() {
   const plugin = React.useRef(

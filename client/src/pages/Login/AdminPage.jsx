@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import api from "../api/axios";
-import { Button } from "@/components/ui/button";
+import api from "../../api/axios";
+import { Button } from "@/components/Login/ui/button";
 import { useNavigate } from "react-router-dom";
 
 function AdminPage() {

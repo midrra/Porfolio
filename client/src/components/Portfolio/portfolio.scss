@@ -1,4 +1,4 @@
-@import "../../global.scss";
+@use "../../global.scss" as *;
 
 .portfolio {
   padding-top: 50px;
@@ -9,6 +9,7 @@
 
   h1 {
     font-size: 50px;
+    font-weight: bold;
     color:$mainColor;
 
     @include mobile {

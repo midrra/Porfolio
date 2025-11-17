@@ -1,3 +1,4 @@
+import React from "react";
 import { Fragment, useState } from "react";
 import Skill from "./skill/Skill";
 import Footer from "../../components/footer/Footer";

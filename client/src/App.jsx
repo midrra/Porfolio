@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef ,useContext} from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 
 import Menu from "./components/menu/Menu";
 import Topbar from "./components/Topbar/Topbar";
@@ -11,25 +11,23 @@ import Testo from "./pages/Testo";
 import Cont from "./pages/Cont";
 import ErrorMessage from "./pages/ErrorMessage";
 import "./app.scss";
-import MainPage from "./pages/AdminDashoard/MainPage"
+import MainPage from "./pages/AdminDashoard/MainPage";
 import Projects from "./pages/AdminDashoard/Projects";
 import UserContext from "./store/data";
 
-import Login from "./pages/login";
-import Signup from "./pages/signup";
-import Testing from "./pages/Testing";
-import Terms from "./pages/Terms";
-import AdminPage from "./pages/AdminPage";
-import ProtectedRoute from "./components/ProtectedRoute";
-import VerifyOtp from "./pages/VerifyOtp";
-
-
+import Login from "./pages/Login/login";
+import Signup from "./pages/Login/signup";
+import Testing from "./pages/Login/Testing";
+import Terms from "./pages/Login/Terms";
+import AdminPage from "./pages/Login/AdminPage";
+import ProtectedRoute from "./components/Login/ProtectedRoute";
+import VerifyOtp from "./pages/Login/VerifyOtp";
 
 const App = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showCv, setShowcv] = useState(false);
-  const {data} = useContext(UserContext)
-  console.log(data,"from app js")
+  const { data } = useContext(UserContext);
+  console.log(data, "from app js");
 
   useEffect(() => {
     setInterval(() => {
@@ -59,29 +57,27 @@ const App = () => {
           <Route path="/projects" element={<Projects />} />
           <Route path="/*" element={<ErrorMessage />} />
 
-          
-                <Route
-          path="/"
-          element={<ProtectedRoute>{<Testing />} </ProtectedRoute>}
-        />
-        <Route path="/terms-conditions" element={<Terms />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />}/>
-         
-        <Route path="/signup/verify-otp" element={<VerifyOtp />} />
-        <Route
+          <Route
+            path="/"
+            element={<ProtectedRoute>{<Testing />} </ProtectedRoute>}
+          />
+          <Route path="/terms-conditions" element={<Terms />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
 
-          path="admin-dashboard"
-          element={
-            <ProtectedRoute requiredRole="admin">
-              <AdminPage />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="*"
-          element={<div className="bg-red-600">404 Page Not Found</div>}
-        />
+          <Route path="/signup/verify-otp" element={<VerifyOtp />} />
+          <Route
+            path="admin-dashboard"
+            element={
+              <ProtectedRoute requiredRole="admin">
+                <AdminPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="*"
+            element={<div className="bg-red-600">404 Page Not Found</div>}
+          />
         </Routes>
       </div>
     </div>
