@@ -15,7 +15,7 @@ function Projects() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/dashboard/projects");
+        const res = await axios.get("http://localhost:3000/dashboard/projects");
         setAllProjects(res.data.fullProjects);
 
         setisEmpty(res.data.fullProjects.length === 0);

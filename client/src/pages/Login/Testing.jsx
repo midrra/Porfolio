@@ -27,9 +27,9 @@ function Testing() {
 
   const clickHandler = async () => {
     try {
-      const res = await api.post("/auth/logout");
-      localStorage.removeItem("accessToken");
-      navigate("/login",{replace:true})
+      // const res = await api.post("/auth/logout");
+      // localStorage.removeItem("accessToken");
+      // navigate("/login",{replace:true})
     } catch (error) {
       console.log(error);
     }

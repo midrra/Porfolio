@@ -6,6 +6,12 @@ import path from "path";
 import dotenv from 'dotenv';
 import connectDB from "./config/db.js";
 
+import cookieParser from "cookie-parser";
+import bodyParser from "body-parser";
+import authRoutes from "./routes/authRoutes.js";
+import homeRotues from "./routes/homeRoutes.js";
+import captch from "./routes/captch.js"
+
 const app = express();
 dotenv.config();
 app.use(cors());
@@ -22,7 +28,23 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
+app.use(
+  cors({
+    origin:[ "https://login-system-chi-ruby.vercel.app","http://localhost:5173"],
+    credentials: true,
+  })
+);
+
+app.use(cookieParser());
+app.use(express.json());
+app.use(bodyParser.json());
+
 app.use("/uploads", express.static("uploads"));
 app.use("/dashboard", upload.single("image"), dashboardRoute);
 
-app.listen(5000, console.log("here we go"));
+
+app.use("/auth", authRoutes);
+app.use("/home", homeRotues);
+app.use("/api/captch",captch)
+
+app.listen(3000, console.log("here we go"));

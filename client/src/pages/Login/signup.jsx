@@ -69,7 +69,7 @@ function Login() {
                   email: values.email,
                 });
                 setUser({ ...values, captchaToken });
-                navigate("/signup/verify-otp", { replace: true });
+                navigate("/signup/verify-otp");
 
                  setSubmitting(false);
               } catch (error) {

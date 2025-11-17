@@ -38,7 +38,7 @@ function MainPage() {
     formData.append("section", section);
     try {
       const res = await axios.post(
-        "http://localhost:5000/dashboard/newproject",
+        "http://localhost:3000/dashboard/newproject",
         formData,
         {
           headers: {

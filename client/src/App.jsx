@@ -56,31 +56,32 @@ const App = () => {
           <Route path="/admin-dashoard" element={<MainPage />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/*" element={<ErrorMessage />} />
+        <Route
+          path="/"
+          element={<ProtectedRoute>{<Testing />} </ProtectedRoute>}
+        />
+        <Route path="/terms-conditions" element={<Terms />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
 
-          <Route
-            path="/"
-            element={<ProtectedRoute>{<Testing />} </ProtectedRoute>}
-          />
-          <Route path="/terms-conditions" element={<Terms />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-
-          <Route path="/signup/verify-otp" element={<VerifyOtp />} />
-          <Route
-            path="admin-dashboard"
-            element={
-              <ProtectedRoute requiredRole="admin">
-                <AdminPage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="*"
-            element={<div className="bg-red-600">404 Page Not Found</div>}
-          />
-        </Routes>
+        <Route path="/signup/verify-otp" element={<VerifyOtp />} />
+        <Route
+          path="admin-dashboard"
+          element={
+            // <ProtectedRoute requiredRole="admin">
+              <AdminPage />
+            // </ProtectedRoute>
+          }
+        />
+        <Route
+          path="*"
+          element={<div className="bg-red-600">404 Page Not Found</div>}
+        />
+            </Routes>
       </div>
+
     </div>
+
   );
 };
 

@@ -31,9 +31,9 @@ function Login() {
   });
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#1e1b2e] text-white font-sans">
+    <div className="!fixed top-0 w-full z-100 min-h-screen flex items-center justify-center bg-[#1e1b2e] text-white font-sans">
       <Alert />
-      <div className="w-[90%] md:w-[850px] flex flex-col md:flex-row rounded-2xl overflow-hidden shadow-2xl bg-[#2b2540] md:h-[98vh]">
+      <div className=" w-[90%] md:w-[850px] flex flex-col md:flex-row rounded-2xl overflow-hidden shadow-2xl bg-[#2b2540] md:h-[98vh]">
         {/* Left side*/}
         <div className="flex-1">
           <Slider />
