@@ -4,7 +4,8 @@ import dashboardRoute from "./routes/dashboardRoute.js";
 import multer from "multer";
 import path from "path";
 import dotenv from 'dotenv';
-import connectDB from "./config/db.js";
+import {MainDB} from "./config/db.js";
+import { loginDB } from "./config/loginDB.js";
 
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
@@ -12,10 +13,8 @@ import authRoutes from "./routes/authRoutes.js";
 import homeRotues from "./routes/homeRoutes.js";
 import captch from "./routes/captch.js"
 
-const app = express();
 dotenv.config();
-app.use(cors());
-connectDB()
+const app = express();
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {

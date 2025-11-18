@@ -28,7 +28,7 @@ export default function Portfolio() {
   useEffect(() => {
     const getProjects = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/dashboard/projects");
+        const res = await axios.get("http://localhost:3000/dashboard/projects");
        setProjects(res.data.fullProjects);
        setLoading(true)
       } catch (err) {

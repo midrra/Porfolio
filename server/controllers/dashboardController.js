@@ -1,4 +1,4 @@
-import Porto from "../models/Porto.js";
+import {Porto} from "../models/Porto.js";
 import path from "path";
 import fs from "fs";
 

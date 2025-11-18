@@ -193,14 +193,14 @@ function Login() {
 
                 {/* reCAPTCHA v2 */}
                 <div className="my-4">
-                  {/* <ReCAPTCHA
+                  <ReCAPTCHA
                     sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
                     onChange={(token) => {
                       setCaptchaToken(token);
                       if (token)
                         setErrors((prev) => ({ ...prev, general: "" }));
                     }}
-                  /> */}
+                  />
                   <p className="text-red-500">{errors.general}</p>
                 </div>
 

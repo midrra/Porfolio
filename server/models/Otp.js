@@ -1,4 +1,7 @@
 import mongoose, { Schema } from "mongoose";
+import {loginDB} from '../config/loginDB.js'
+
+
 
 const otpSchema = new mongoose.Schema(
 {
@@ -9,5 +12,4 @@ const otpSchema = new mongoose.Schema(
 }
 )
 
-const Otp = mongoose.model("Otp",otpSchema);
-export default Otp;
+export const Otp = loginDB.model("Otp",otpSchema);

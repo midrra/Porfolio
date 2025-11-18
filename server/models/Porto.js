@@ -1,4 +1,6 @@
 import mongoose from 'mongoose';
+import {MainDB} from '../config/db.js'
+
 
 const portoSchema= new mongoose.Schema({
     name:{type:String,required:true},
@@ -8,4 +10,4 @@ const portoSchema= new mongoose.Schema({
 }, { timestamps: true })
 
 portoSchema.index({ image: 1 }, { unique: true });
-export default mongoose.model("Portfolio",portoSchema)
+export const Porto =  MainDB.model("Portfolio",portoSchema)

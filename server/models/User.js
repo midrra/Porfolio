@@ -1,4 +1,7 @@
 import mongoose from "mongoose";
+import {loginDB} from '../config/loginDB.js'
+
+
 
 const userSchema = new mongoose.Schema(
   {
@@ -19,6 +22,5 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const User = mongoose.model("User", userSchema);
+export const User = loginDB.model("User", userSchema);
 
-export default User;
