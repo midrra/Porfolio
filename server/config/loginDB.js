@@ -1,14 +1,10 @@
 import mongoose from "mongoose";
 
-export const loginDB = mongoose.createConnection(
-  process.env.MONGO_URI_LOGIN,
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }
-);
+export const loginDB = mongoose.createConnection(process.env.MONGO_URI_LOGIN);
+console.log("from login", process.env.MONGO_URI_LOGIN);
 
-// Optional: log when connected
+
+//log when connected
 loginDB.once("open", () => {
   console.log(`MongoDB Connected: ${loginDB.host}`);
 });

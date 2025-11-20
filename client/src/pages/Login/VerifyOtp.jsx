@@ -43,7 +43,7 @@ function VerifyOtp() {
 
   return (
     <>
-      <div className="flex items-center justify-center min-h-screen">
+      <div className="bg-blue-100 !fixed top-0 w-full z-100 flex items-center justify-center min-h-screen">
           <Alert />
         <div>
           <div className="text-blue-700 text-center mb-5 text-2xl font-bold">Please Enter Your Verification Code</div>

@@ -9,5 +9,4 @@ const portoSchema= new mongoose.Schema({
     image:{type:String,required:true,unique:true}
 }, { timestamps: true })
 
-portoSchema.index({ image: 1 }, { unique: true });
 export const Porto =  MainDB.model("Portfolio",portoSchema)

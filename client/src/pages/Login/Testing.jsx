@@ -27,20 +27,20 @@ function Testing() {
 
   const clickHandler = async () => {
     try {
-      // const res = await api.post("/auth/logout");
-      // localStorage.removeItem("accessToken");
-      // navigate("/login",{replace:true})
+      const res = await api.post("/auth/logout");
+      localStorage.removeItem("accessToken");
+      navigate("/login",{replace:true})
     } catch (error) {
       console.log(error);
     }
   };
 
   return (
-    <div className="p-5 bg-blue-500 text-white">
+    <div className="!fixed top-0 w-full z-100 p-5 bg-blue-500 text-white">
       <Button
         variant="outline"
         onClick={clickHandler}
-        className="cursor-pointer"
+        className="cursor-pointer h-full"
       >
         Logout
       </Button>

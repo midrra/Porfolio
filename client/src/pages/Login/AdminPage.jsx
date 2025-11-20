@@ -31,11 +31,11 @@ function AdminPage() {
   };
 
   return (
-    <div className="p-5 bg-red-500 text-white ">
+    <div className="!fixed top-0 w-full z-100 p-5 bg-red-500 text-white ">
       <Button
         variant="outline"
         onClick={clickHandler}
-        className="cursor-pointer"
+        className="cursor-pointer h-full"
       >
         Logout
       </Button>

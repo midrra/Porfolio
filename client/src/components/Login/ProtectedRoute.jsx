@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import api from "../../api/axios";
+import { Spinner } from "@/components/Login/ui/spinner";
+
 
 export default function ProtectedRoute({ children, requiredRole }) {
   const [status, setStatus] = useState("loading");
@@ -28,7 +30,7 @@ export default function ProtectedRoute({ children, requiredRole }) {
     checkAuth();
   }, []);
 
-  if (status === "loading") return <p>Loading...</p>;
+  if (status === "loading") return <Spinner/>;
 
   if (status === "unauthorized") return <Navigate to="/login" />;
 
