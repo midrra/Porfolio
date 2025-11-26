@@ -32,7 +32,7 @@ function VerifyOtp() {
           password: user.password,
           captchaToken: user.captchaToken,
         });
-        navigate("/",{replace:true});
+        navigate("/admin-dashboard",{replace:true});
       } catch (error) {
         showError("Something went wrong!");
         console.log(error.message);

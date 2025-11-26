@@ -5,20 +5,17 @@ import { Eye } from "lucide-react";
 import InputField from "../../components/Login/InputField";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import axios from "axios";
 import { login } from "../../api/auth";
 import ReCAPTCHA from "react-google-recaptcha";
 import { Spinner } from "@/components/login/ui/spinner";
 import { GoogleLogin } from "../../components/Login/GoogleLogin";
 import Alert, { showError } from "../../components/login/Alert";
 import api from "../../api/axios";
-// import FacebookLogin from "../components/FacebookLogin";
 
 function Login() {
   const [check, setCheck] = useState(false);
   const [captchaToken, setCaptchaToken] = useState("");
   const [AlertFire, setAlertFire] = useState(false);
-  // const { setErrors } = useFormikContext();
 
   const navigate = useNavigate();
   const validationSchema = Yup.object({

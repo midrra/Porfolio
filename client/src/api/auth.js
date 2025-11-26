@@ -39,19 +39,6 @@ export const googleLogin = async (googleData) => {
   }
 };
 
-//Facebook Login
-export const facebookLogin = async (facebookData) => {
-  try {
-    const res = await api.post("/auth/facebook", facebookData);
-    if (res.data.accessToken) {
-      localStorage.setItem("accessToken", res.data.accessToken);
-    }
-    return res.data;
-  } catch (error) {
-    throw new Error(error.response?.data?.message || error.message);
-  }
-};
-
 //OTP
 export const createOtp = async (values) => {
   try {

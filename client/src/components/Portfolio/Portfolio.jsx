@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import PortfolioList from "../portfolioList/PortfolioList";
 import "./portfolio.scss";
 import Skeleton from "../Skeleton/Skeleton";
-import axios from "axios";
+import api from "../../api/axios"
 
 export default function Portfolio() {
   const [selected, setSelected] = useState("All");
@@ -28,7 +28,7 @@ export default function Portfolio() {
   useEffect(() => {
     const getProjects = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/dashboard/projects");
+        const res = await api.get("/dashboard/projects");
        setProjects(res.data.fullProjects);
        setLoading(true)
       } catch (err) {
@@ -43,11 +43,11 @@ export default function Portfolio() {
   const getAll = async () => {
     setLoading(false);
     try {
-      let url = "http://localhost:5000/dashboard/projects";
+      let url = "/dashboard/projects";
       if (selected === "React") url += "?section=react";
       if (selected === "vanilla") url += "?section=vanilla";
 
-      const res = await axios.get(url);
+      const res = await api.get(url);
       setProjects(res.data.fullProjects);
       setLoading(true)
     } catch (err) {

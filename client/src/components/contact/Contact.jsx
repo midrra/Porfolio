@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import "./Contact.scss";
+import OutgoingMailIcon from "@mui/icons-material/OutgoingMail";
 
 export default function Contact() {
   const [message, setMessage] = useState(false);
@@ -57,11 +58,11 @@ export default function Contact() {
             <p>Let's create something togdhether</p>
             <div className="mail-me">
               <div className="image">
-                <img src="/photes/instagram.png" alt="contact" />
-              </div>
-              <div>
-                <h2>Mail me at</h2>
-                <a href="/gmail.com">el.mga.su@gmail.com</a>
+                <a href="mailto:el.mga.su@gmail.com">
+                  <OutgoingMailIcon fontSize="large"/>
+                  
+                  <div><h2>Mail me at</h2><h2>el.mga.su@gmail.com</h2></div>
+                </a>
               </div>
             </div>
           </div>

@@ -17,11 +17,11 @@ import UserContext from "./store/data";
 
 import Login from "./pages/Login/login";
 import Signup from "./pages/Login/signup";
-import Testing from "./pages/Login/Testing";
 import Terms from "./pages/Login/Terms";
-import AdminPage from "./pages/Login/AdminPage";
 import ProtectedRoute from "./components/Login/ProtectedRoute";
 import VerifyOtp from "./pages/Login/VerifyOtp";
+import Main from "./components/dashboard/Main";
+import Dashboard from "./pages/AdminDashoard/Dashboard";
 
 const App = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -53,26 +53,32 @@ const App = () => {
           <Route path="/portfolio" element={<Porto />} />
           <Route path="/testimonials" element={<Testo />} />
           <Route path="/contact" element={<Cont />} />
-          <Route path="/dashboard" element={<MainPage />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route
-            path="/testing"
-            element={<ProtectedRoute>{<Testing />} </ProtectedRoute>}
-          />
+          <Route path="/admin-dashboard" element={<Dashboard/>}>
+            <Route
+              index
+              element={
+                <ProtectedRoute requiredRole="admin">
+                  <MainPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="projects"
+              element={
+                <ProtectedRoute requiredRole="admin">
+                  <Projects />
+                </ProtectedRoute>
+              }
+            />
+          </Route>
+
           <Route path="/terms-conditions" element={<Terms />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
 
           <Route path="/signup/verify-otp" element={<VerifyOtp />} />
-          <Route
-            path="/admin-dashboard"
-            element={
-              <ProtectedRoute requiredRole="admin">
-                <AdminPage />
-              </ProtectedRoute>
-            }
-          />
           <Route path="/*" element={<ErrorMessage />} />
+        
         </Routes>
       </div>
     </div>
