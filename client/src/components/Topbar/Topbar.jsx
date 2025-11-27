@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from "react";
+import React, { useEffect, useState } from "react";
 import "./Topbar.scss";
 import MailIcon from "@mui/icons-material/Mail";
 import PersonIcon from "@mui/icons-material/Person";
@@ -6,22 +6,20 @@ import { Link } from "react-router";
 import api from "../../api/axios";
 
 export default function Topbar({ menuOpen, setMenuOpen, showCv }) {
- const [role,setRole] = useState();
-  useEffect(()=>{
-    const getAdmin=async()=>{
-      try{
- const res = await api.get("/home/em");
+  const [role, setRole] = useState();
+  useEffect(() => {
+    const getAdmin = async () => {
+      try {
+        const res = await api.get("/home/em");
         setRole(res.data.user.role);
-        console.log(res.data.user.role,"here it is")
-      }catch(err){
-        console.log(err)
+      } catch (err) {
+        console.log(err);
       }
-    }
-    getAdmin()
-
-  },[])
+    };
+    getAdmin();
+  }, []);
   return (
-    <div className={"topbar " + (menuOpen && "active")}>
+    <div className={"topbar " + (menuOpen ? "active":"")}>
       <div className="wrapper">
         <div className="left">
           <Link to="/" className="logo">
@@ -58,11 +56,15 @@ export default function Topbar({ menuOpen, setMenuOpen, showCv }) {
               Download CV
             </a>
           )}
-          {!showCv && role==="admin"?(
+          {!showCv && role === "admin" ? (
             <div className="bg-indigo-500 w-10 h-10 rounded-full overflow-hidden mr-7">
-              <Link to="/admin-dashboard"><img src="photes/mohamed.png" alt="" className="ml-0.5 mt-1"/></Link>
+              <Link to="/admin-dashboard">
+                <img src="photes/mohamed.png" alt="" className="ml-0.5 mt-1" />
+              </Link>
             </div>
-          ):""}
+          ) : (
+            ""
+          )}
           <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
             <span className="line1"></span>
             <span className="line2"></span>

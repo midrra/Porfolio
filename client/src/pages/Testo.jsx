@@ -5,8 +5,8 @@ import Footer from "../components/footer/Footer";
 export default function Testo() {
   return (
     <Fragment>
-      <Testimonials />
-      <Footer />
+      {/* <Testimonials />
+      <Footer /> */}
     </Fragment>
   );
 }

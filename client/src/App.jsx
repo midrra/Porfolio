@@ -20,14 +20,11 @@ import Signup from "./pages/Login/signup";
 import Terms from "./pages/Login/Terms";
 import ProtectedRoute from "./components/Login/ProtectedRoute";
 import VerifyOtp from "./pages/Login/VerifyOtp";
-import Main from "./components/dashboard/Main";
 import Dashboard from "./pages/AdminDashoard/Dashboard";
 
 const App = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showCv, setShowcv] = useState(false);
-  const { data } = useContext(UserContext);
-  console.log(data, "from app js");
 
   useEffect(() => {
     setInterval(() => {
@@ -51,7 +48,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/skills" element={<Skills />} />
           <Route path="/portfolio" element={<Porto />} />
-          <Route path="/testimonials" element={<Testo />} />
+          {/* <Route path="/testimonials" element={<Testo />} /> */}
           <Route path="/contact" element={<Cont />} />
           <Route path="/admin-dashboard" element={<Dashboard/>}>
             <Route

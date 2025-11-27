@@ -21,7 +21,7 @@ export function Component1(props) {
     setData((prev) => ({ ...prev, ...newData, updatedAt: Date.now() }))
   }
 useEffect(()=>{
-console.log(data,'the datat is receved here ')
+// console.log(data,'the datat is receved here ')
 },[data])
   // console.log(data,'from the api')
   const textData = {

@@ -30,13 +30,13 @@ function Login() {
   return (
     <div className="!fixed top-0 w-full z-100 min-h-screen flex items-center justify-center bg-[#1e1b2e] text-white font-sans">
       <Alert />
-      <div className=" w-[90%] md:w-[850px] flex flex-col md:flex-row rounded-2xl overflow-hidden shadow-2xl bg-[#2b2540] md:h-[98vh]">
+      <div className=" w-[90%] md:w-[850px] flex flex-col md:flex-row rounded-2xl shadow-2xl bg-[#2b2540] md:h-[120vh]">
         {/* Left side*/}
-        <div className="flex-1">
+        <div className="hidden md:block md:flex-1">
           <Slider />
         </div>
         {/* Right side (Form section) */}
-        <div className="md:w-1/2 p-8 flex flex-col justify-center">
+        <div className="md:w-1/2 p-8 flex flex-col justify-center md:-mt-20">
           <h2 className="text-2xl font-semibold mb-2">Login</h2>
           <p className="text-sm text-gray-400 mb-6">
             Create an account?
@@ -109,7 +109,7 @@ function Login() {
                   onBlur={handleBlur}
                 />
                 {touched.name && errors.name && (
-                  <p className={`text-red-500 ${touched.name && "!mb-1"}`}>
+                  <p className={`text-red-500 text-sm ${touched.name && "!mb-1"}`}>
                     {errors.name}
                   </p>
                 )}
@@ -126,7 +126,7 @@ function Login() {
                   onBlur={handleBlur}
                 />
                 {touched.email && errors.email && (
-                  <p className={`text-red-500 ${touched.email && "!mb-1"}`}>
+                  <p className={`text-red-500 text-sm ${touched.email && "!mb-1"}`}>
                     {errors.email}
                   </p>
                 )}
@@ -145,7 +145,7 @@ function Login() {
                   />
                   {touched.password && errors.password && (
                     <p
-                      className={`text-red-500 ${touched.password && "!mb-1"}`}
+                      className={`text-red-500 text-sm ${touched.password && "!mb-1"}`}
                     >
                       {errors.password}
                     </p>
@@ -180,7 +180,7 @@ function Login() {
                 </div>
                 {touched.agree && errors.agree && (
                   <p
-                    className={`text-red-500 text-sm  ${
+                    className={`text-red-500 text-sm text-sm  ${
                       touched.agree && "!mb-1"
                     }`}
                   >

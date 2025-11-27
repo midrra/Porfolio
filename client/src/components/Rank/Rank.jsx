@@ -1,8 +1,7 @@
 import React from "react";
 import { Fragment, useState } from "react";
-import Skill from "./skill/Skill";
-import Footer from "../../components/footer/Footer";
-import "./Skills.scss";
+import Skill from "../../pages/skills/skill/Skill";
+import "./Rank.scss";
 
 const Skills = () => {
   const [items] = useState([
@@ -76,7 +75,7 @@ const Skills = () => {
           </div>
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </Fragment>
   );
 };
