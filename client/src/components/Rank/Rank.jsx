@@ -5,14 +5,14 @@ import "./Rank.scss";
 
 const Skills = () => {
   const [items] = useState([
-    {
+      {
       id: 1,
       title: "Html",
       rate: "85%",
     },
     {
       id: 2,
-      title: "css",
+      title: "CSS",
       rate: "90%",
     },
     {
@@ -24,9 +24,13 @@ const Skills = () => {
       id: 4,
       title: "Bootstrap",
       rate: "85%",
+    },{
+       id: 5,
+      title: "Tailwind CSS",
+      rate: "85%",
     },
     {
-      id: 5,
+      id: 6,
       title: "Javascript",
       rate: "80%",
     },
@@ -36,22 +40,22 @@ const Skills = () => {
       rate: "70%",
     },
     {
-      id: 6,
-      title: "React",
+      id: 8,
+      title: "React js",
       rate: "75%",
     },
        {
-      id: 7,
-      title: "Git && github",
-      rate: "85%",
-    },
-       {
-      id: 8,
-      title: "Node && Express js",
-      rate: "85%",
-    },
-       {
       id: 9,
+      title: "Git & github",
+      rate: "85%",
+    },
+       {
+      id: 10,
+      title: "Node & Express js",
+      rate: "85%",
+    },
+       {
+      id: 11,
       title: "Mongo DB",
       rate: "80%",
     },
@@ -59,23 +63,22 @@ const Skills = () => {
 
   return (
     <Fragment>
-      <div className="skills">
-        <div className="left">
-          <div className="det">
-            <h1>Skill</h1>
-            <h1>Expertise</h1>
+      <div className="skills-container">
+        <h1>Skill Expertise</h1>
+
+        <div className="skills">
+          <div className="left">
+            {items.map((item) => (
+              <Skill key={item.id} name={item.title} rate={item.rate} />
+            ))}
           </div>
-          {items.map((item) => (
-            <Skill key={item.id} name={item.title} rate={item.rate} />
-          ))}
-        </div>
-        <div className="right">
-          <div className="image">
-            <img src={"/photes/skills.png"} alt="skills" />
+          <div className="right">
+            <div className="image">
+              <img src={"/photes/skills.png"} alt="skills" />
+            </div>
           </div>
         </div>
       </div>
-      {/* <Footer /> */}
     </Fragment>
   );
 };

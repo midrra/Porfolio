@@ -18,9 +18,7 @@ function Home() {
       <Portfolio />
       {/* <Works /> */}
       {/* <Testimonials /> */}
-      {/* <Skills/> */}
       <Rank/>
-      {/* <About/> */}
       <Me/>
       <Contact />
       <Footer />

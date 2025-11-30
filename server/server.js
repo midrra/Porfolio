@@ -21,12 +21,11 @@ const storage = multer.diskStorage({
     cb(null, "uploads/"); 
   },
   filename: function (req, file, cb) {
-    cb(null, Date.now() + path.extname(file.originalname));
+    cb(null, file.originalname);
   },
 });
 
 const upload = multer({ storage: storage });
-// console.log(process.env.MONGO,"this is the uri")
 app.use(
   cors({
     origin:[ "https://login-system-chi-ruby.vercel.app","http://localhost:5173"],

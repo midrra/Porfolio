@@ -1,13 +1,12 @@
-import React , { Fragment } from "react";
+import React, { Fragment } from "react";
 import styles from "./Me.module.scss";
 
 const About = () => {
   return (
-    <Fragment>
+    <div className={styles["about-containter"]}>
+      <h1>About Me</h1>
       <div className={styles.about}>
         <div className={styles.left}>
-          <h1>About</h1>
-          <h1>me</h1>
           <p>
             My name is Mohamed Awad I am a highly skilled and passionate
             Front-End Developer, specializing in crafting dynamic, responsive,
@@ -27,7 +26,7 @@ const About = () => {
           </div>
         </div>
       </div>
-    </Fragment>
+    </div>
   );
 };
 

@@ -13,7 +13,7 @@ const Skills = () => {
     },
     {
       id: 2,
-      title: "css",
+      title: "CSS",
       rate: "90%",
     },
     {
@@ -25,9 +25,13 @@ const Skills = () => {
       id: 4,
       title: "Bootstrap",
       rate: "85%",
+    },{
+       id: 5,
+      title: "Tailwind CSS",
+      rate: "85%",
     },
     {
-      id: 5,
+      id: 6,
       title: "Javascript",
       rate: "80%",
     },
@@ -37,22 +41,22 @@ const Skills = () => {
       rate: "70%",
     },
     {
-      id: 6,
-      title: "React",
+      id: 8,
+      title: "React js",
       rate: "75%",
     },
        {
-      id: 7,
-      title: "Git && github",
-      rate: "85%",
-    },
-       {
-      id: 8,
-      title: "Node && Express js",
-      rate: "85%",
-    },
-       {
       id: 9,
+      title: "Git & github",
+      rate: "85%",
+    },
+       {
+      id: 10,
+      title: "Node & Express js",
+      rate: "85%",
+    },
+       {
+      id: 11,
       title: "Mongo DB",
       rate: "80%",
     },

@@ -1,13 +1,12 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import { FaTimes } from "react-icons/fa";
-import UserContext from "../../store/data";
 import api from "../../api/axios";
 import { useNavigate } from "react-router-dom";
+import Button from "@mui/material/Button";
 
 function Projects() {
   const [allProjects, setAllProjects] = useState([]);
   const [isEmpyt, setisEmpty] = useState(false);
-  const { data } = useContext(UserContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,12 +16,21 @@ function Projects() {
         setAllProjects(res.data.fullProjects);
 
         setisEmpty(res.data.fullProjects.length === 0);
-      } catch (errr) {
-        console.log(errr);
+      } catch (err) {
+        console.error(err.response.data.message || err.message);
       }
     };
     fetchData();
-  }, [data]);
+  }, []);
+
+  const editingFun = async (edit) => {
+    try {
+      const res = await api.get(`/dashboard/edit/${edit}`);
+      navigate(`/admin-dashboard/add-project/${edit}`);
+    } catch (err) {
+      console.error(err.response.data.message || err.message);
+    }
+  };
 
   if (isEmpyt) {
     return <div>No data to fetch</div>;
@@ -35,29 +43,40 @@ function Projects() {
       setisEmpty(filterData.length === 0);
       setAllProjects(filterData);
     } catch (err) {
-      console.error(err);
+      console.error(err.response.data.message || err.message);
     }
   };
 
-
   return (
     <div className="w-full">
-       {allProjects.map((ele) => (
+      {allProjects.map((ele) => (
         <div
           key={ele._id}
           style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "20px",
-            justifyContent: "space-around",
-            padding: "20px",
             backgroundColor: "#e6e0e1",
           }}
+          className="flex flex-wrap items-center justify-around gap-5 p-5"
         >
-          <span>{ele.name}</span>
-          <img src={ele.image} alt={ele.name} width={300} />
+          <img
+            src={ele.image}
+            alt={ele.name}
+            className="w-[300px] lg:w-[400px]"
+          />
+          <span className="font-bold">{ele.name}</span>
+          <Button
+            sx={{
+              backgroundColor: "#15023a",
+              "&:hover": {
+                backgroundColor: "#2a0468",
+              },
+              color: "white",
+            }}
+            onClick={() => editingFun(ele._id)}
+          >
+            Edit
+          </Button>
           <FaTimes
-            style={{ cursor: "pointer"}}
+            style={{ cursor: "pointer" }}
             onClick={() => handleDelete(ele._id)}
           />
         </div>

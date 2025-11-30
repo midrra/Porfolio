@@ -50,23 +50,17 @@ const App = () => {
           <Route path="/portfolio" element={<Porto />} />
           {/* <Route path="/testimonials" element={<Testo />} /> */}
           <Route path="/contact" element={<Cont />} />
-          <Route path="/admin-dashboard" element={<Dashboard/>}>
-            <Route
-              index
-              element={
-                <ProtectedRoute requiredRole="admin">
-                  <MainPage />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="projects"
-              element={
-                <ProtectedRoute requiredRole="admin">
-                  <Projects />
-                </ProtectedRoute>
-              }
-            />
+          <Route
+            path="/admin-dashboard"
+            element={
+              <ProtectedRoute requiredRole="admin">
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          >
+            <Route index element={<MainPage />} />
+            <Route path="add-project/:id" element={<MainPage />} />
+            <Route path="projects" element={<Projects />} />
           </Route>
 
           <Route path="/terms-conditions" element={<Terms />} />
@@ -75,7 +69,6 @@ const App = () => {
 
           <Route path="/signup/verify-otp" element={<VerifyOtp />} />
           <Route path="/*" element={<ErrorMessage />} />
-        
         </Routes>
       </div>
     </div>
