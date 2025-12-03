@@ -5,7 +5,6 @@ import fs from "fs";
 export const newProject = async (req, res, next) => {
   try {
     const normalizedPath = req.file.path.replace(/\\/g, "/");
-    console.log(req.file);
     await Porto.create({
       name: req.body.name,
       url: req.body.url,
@@ -51,7 +50,6 @@ export const removeProject = async (req, res) => {
       return res.status(404).json({ message: "Project not found" });
     }
     const imagePath = path.join(project.image);
-    console.log(imagePath);
     fs.unlink(imagePath, (err) => {
       if (err) {
         return res.status(500).json({ message: "something went wrong" });

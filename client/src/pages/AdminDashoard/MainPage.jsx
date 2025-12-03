@@ -105,21 +105,21 @@ function MainPage() {
             type="text"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
-            placeholder="Enter your new project name"
+            placeholder="Enter Your New Project Name"
             className="text-gray-800 w-full h-10 border-1 border-blue-500 pl-2 rounded-lg outline-0  focus:border-2"
           />
           <input
             type="text"
             value={urlValue}
             onChange={(e) => setUrlValue(e.target.value)}
-            placeholder="Enter your URL"
+            placeholder="Enter Your URL"
             className="text-gray-800 w-full h-10 border-1 border-blue-500 pl-2 rounded-lg outline-0  focus:border-2"
           />
           <input
             type="text"
             value={section}
             onChange={(e) => setSection(e.target.value)}
-            placeholder="Enter your Section"
+            placeholder="Enter Your Section"
             className="text-gray-800 w-full h-10 border-1 border-blue-500 pl-2 rounded-lg outline-0  focus:border-2"
           />
           <input

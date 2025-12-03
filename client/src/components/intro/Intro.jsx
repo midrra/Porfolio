@@ -7,11 +7,12 @@ export default function Intro() {
   return (
     <div className="intro" id="intro">
       <div className="left">
-        <div className="imgContainer">
+        <div className="bg-indigo-200 imgContainer ">
           <img
             src="/photes/mohamed.png"
             alt=""
             loading="lazy"
+           
           />
         </div>
       </div>

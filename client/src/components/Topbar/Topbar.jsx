@@ -57,7 +57,7 @@ export default function Topbar({ menuOpen, setMenuOpen, showCv }) {
             </a>
           )}
           {!showCv && role === "admin" ? (
-            <div className="bg-indigo-500 w-10 h-10 rounded-full overflow-hidden mr-7">
+            <div className="bg-indigo-200 w-10 h-10 rounded-full overflow-hidden mr-7">
               <Link to="/admin-dashboard">
                 <img src="photes/mohamed.png" alt="" className="ml-0.5 mt-1" />
               </Link>
