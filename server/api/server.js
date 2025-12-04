@@ -28,7 +28,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 app.use(
   cors({
-    origin:[ "https://login-system-chi-ruby.vercel.app","http://localhost:5173"],
+    origin:[ "https://portfolio-app-deb9b.web.app","http://localhost:5173"],
     credentials: true,
   })
 );
@@ -45,4 +45,5 @@ app.use("/auth", authRoutes);
 app.use("/home", homeRotues);
 app.use("/api/captch",captch)
 
-app.listen(3000, console.log("here we go"));
+// app.listen(3000, console.log("here we go"));
+export default app;
