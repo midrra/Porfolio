@@ -10,14 +10,14 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { Spinner } from "@/components/Login/ui/spinner";
 import { GoogleLogin } from "../../components/Login/GoogleLogin";
 import Alert, { showError } from "../../components/Login/Alert";
-// import { userContext } from "../../lib/userContext";
+import { useUserContext } from "../../lib/userContext";
 
 function Login() {
   const navigate = useNavigate();
   const [check, setCheck] = useState(false);
   const [captchaToken, setCaptchaToken] = useState("");
   const [captchaError, setCaptchaError] = useState("");
-  // const { setUser, setError } = userContext();
+  const { setUser, setError } = useUserContext();
 
   const validationSchema = Yup.object({
     firstName: Yup.string().required("Enter Your First Name"),
@@ -67,7 +67,7 @@ function Login() {
                 await createOtp({
                   email: values.email,
                 });
-                // setUser({ ...values, captchaToken });
+                setUser({ ...values, captchaToken });
                 navigate("/signup/verify-otp");
 
                  setSubmitting(false);

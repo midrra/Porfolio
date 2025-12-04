@@ -6,13 +6,13 @@ import {
   InputOTPSeparator,
   InputOTPSlot,
 } from "@/components/Login/ui/input-otp";
-// import { userContext } from "../../lib/userContext";
+import { useUserContext } from "../../lib/userContext";
 import Alert, { showError } from "../../components/Login/Alert";
 import { useNavigate } from "react-router-dom";
 
 function VerifyOtp() {
   const [insertOtp, setInserOtp] = useState();
-  // const { user } = userContext();
+  const { user } = useUserContext();
   const navigate = useNavigate();
 
   const maxLength = 6;
@@ -25,13 +25,13 @@ function VerifyOtp() {
           otp: value,
         });
 
-        // const data = await signup({
-        //   firstName: user.firstName,
-        //   lastName: user.lastName,
-        //   email: user.email,
-        //   password: user.password,
-        //   captchaToken: user.captchaToken,
-        // });
+        const data = await signup({
+          firstName: user.firstName,
+          lastName: user.lastName,
+          email: user.email,
+          password: user.password,
+          captchaToken: user.captchaToken,
+        });
         navigate("/admin-dashboard",{replace:true});
       } catch (error) {
         showError("Something went wrong!");
