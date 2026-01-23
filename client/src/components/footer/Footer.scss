@@ -1,0 +1,62 @@
+@use "../../global.scss" as *;
+
+.social-media{
+  width: 25%;
+  margin: auto;
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include desktop{
+    width:28%;
+  }
+
+  @include tablet{
+    width:40%;
+    margin-top: 50px;
+  }
+
+  @include Extramobile{
+    width:50%;
+    flex-wrap: wrap;
+  }
+
+  .icon{
+    font-size: 55px;
+    padding: 3px 8px;
+    color: $mainColor;
+    cursor: pointer;
+    transition: all 0.5s ease;
+
+    @include mobile{
+      font-size:45px;
+    }
+
+    @include Extramobile {
+      margin: 10px 0;
+    }
+
+    &:hover{
+      background-color: $mainColor;
+      color: #fff;
+      border-radius: 6px;
+      transform:scale(0.8);
+    }
+  }
+}
+
+.rights{
+  text-align: center;
+  margin: 20px 0;
+  
+  h1{
+    font-size: 17px;
+    font-weight: bold;
+
+    
+    @include Extramobile {
+      font-size: 15px;
+    }
+  }
+}

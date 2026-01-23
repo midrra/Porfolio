@@ -1,0 +1,13 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+
+@media(min-width: 768px) and (max-width: 830px) {
+  .spinner-style {
+   left: 26%;
+  }
+  .spinner-style-login{
+      left: 37%;
+  }
+}
+

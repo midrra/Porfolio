@@ -118,8 +118,7 @@ function Login() {
                   className={`w-full ${touched.email && "!mb-1"}`}
                   name="email"
                   value={values.email}
-                  onChange={(e) => 
-                    {
+                  onChange={(e) => {
                     handleChange(e);
                     setFieldTouched("email", true, false);
                   }}

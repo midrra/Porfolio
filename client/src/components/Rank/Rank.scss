@@ -1,0 +1,51 @@
+@use "../../global.scss" as *;
+.skills-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 50px;
+
+  h1 {
+    font-size: 50px;
+    color: $mainColor;
+    font-weight: bold;
+
+    @include mobile {
+      font-size: 40px;
+    }
+  }
+
+  .skills {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 50px;
+
+    @include tablet {
+      flex-direction: column;
+    }
+
+    .left {
+      flex: 1;
+
+      @include tablet {
+        width: 100%;
+      }
+
+      }
+
+    .right {
+      flex: 2;
+
+      .image {
+        img {
+          width: 114%;
+          height: 120%;
+        }
+      }
+    }
+  }
+}
