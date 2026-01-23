@@ -11,5 +11,5 @@ loginDB.once("open", () => {
 
 loginDB.on("error", (err) => {
   console.error(`Error connecting to MongoDB: ${err.message}`);
-  process.exit(1); // stop app if db fails
+  process.exit(1);
 });

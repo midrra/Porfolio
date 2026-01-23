@@ -25,20 +25,6 @@ export default function Portfolio() {
     },
   ];
 
-  useEffect(() => {
-    const getProjects = async () => {
-      try {
-        const res = await api.get("/dashboard/projects");
-       setProjects(res.data.fullProjects);
-       setLoading(true)
-      } catch (err) {
-        setLoading(false);
-        console.log(err);
-      }
-    };
-    getProjects();
-  }, []);
-
  useEffect(() => {
   const getAll = async () => {
     setLoading(false);

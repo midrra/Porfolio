@@ -73,7 +73,6 @@ function Login() {
               } catch (error) {
                 setSubmitting(false);
 
-                console.log(error.message);
                 showError(
                   error.message === "Invalid credentials"
                     ? "Invalid email or password"

@@ -44,6 +44,8 @@ app.use("/dashboard", upload.single("image"), dashboardRoute);
 app.use("/auth", authRoutes);
 app.use("/home", homeRotues);
 app.use("/api/captch",captch)
-
-// app.listen(3000, console.log("here we go"));
-export default app;
+app.get("/",(req,res)=>{
+  console.log("the server is running")
+})
+app.listen(3000, console.log("here we go"));
+// export default app;
