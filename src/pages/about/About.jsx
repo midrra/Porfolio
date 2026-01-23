@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import Footer from "../../compontents/footer/Footer";
+import Footer from "../../components/footer/Footer";
 import styles from "./about.module.scss";
 
 const About = () => {
@@ -18,11 +18,13 @@ const About = () => {
             cutting-edge technology drives me to build exceptional user
             interfaces that stand out.
           </p>
-          {/* <a href="/www.google.com">www.mohaamd_awad.com</a> */}
+          <a href="https://github.com/midrra" target="_blank">
+            My Github Account
+          </a>
         </div>
         <div className={styles.right}>
           <div className={styles.image}>
-            <img src="photes/about.png"></img>
+            <img src={"/photes/about.png"} alt="" />
           </div>
         </div>
       </div>

@@ -7,15 +7,94 @@ export const featuredPorfolio = [
   },
   {
     id: 2,
+    title: "Shall App",
+    img: "photes/vanilla/Shall-App.png",
+    ip: "https://midrra.github.io/Shala-App/",
+  },
+  {
+    id: 3,
+    title: "Ruben Kuipers",
+    img: "photes/vanilla/Portfolio.png",
+    ip: "https://moonlit-crepe-f1b6f7.netlify.app/",
+  },
+  {
+    id: 4,
     title: "Arichitect",
     img: "photes/vanilla/Arichitect.png",
     ip: "https://midrra.github.io/Architecture-website/",
   },
   {
-    id: 3,
+    id: 5,
+    title: "Anime",
+    img: "photes/vanilla/Anime.png",
+    ip: "https://3nime-app.netlify.app/",
+  },
+  {
+    id: 6,
+    title: "University",
+    img: "photes/vanilla/University.png",
+    ip: "https://university-a5e26.web.app/",
+  },
+  {
+    id: 7,
     title: "F-rest",
     img: "photes/vanilla/Acadimey.png",
     ip: "https://midrra.github.io/Restaurant-website/",
+  },
+
+  {
+    id: 8,
+    title: "Boost",
+    img: "photes/vanilla/Boost.png",
+    ip: "https://jade-rugelach-51c554.netlify.app/",
+  },
+  {
+    id: 9,
+    title: "EasyBank",
+    img: "photes/vanilla/bank.png",
+    ip: "https://dazzling-rugelach-bbfd5d.netlify.app/",
+  },
+];
+
+export const webPortfolio = [
+  {
+    id: 1,
+    title: "Egybest App",
+    img: "photes/React/egybest.png",
+    ip: "https://egybest-app-d8542.web.app",
+  },
+  {
+    id: 2,
+    title: "Netflix App",
+    img: "photes/React/React-App.png",
+    ip: "https://netflix-clone-b4749.web.app/",
+  },
+  {
+    id: 3,
+    title: "Tesla App",
+    img: "photes/React/tesla.png",
+    ip: "https://tesla-app-c31f2.web.app",
+  },
+];
+
+export const allApps = [
+  {
+    id: 1,
+    title: "Egybest App",
+    img: "photes/React/egybest.png",
+    ip: "https://egybest-app-d8542.web.app",
+  },
+  {
+    id: 2,
+    title: "Netflix App",
+    img: "photes/React/React-App.png",
+    ip: "https://netflix-clone-b4749.web.app/",
+  },
+  {
+    id: 3,
+    title: "Resturant",
+    img: "photes/vanilla/Resto.png",
+    ip: "https://midrra.github.io/Resto-website/",
   },
   {
     id: 4,
@@ -23,127 +102,53 @@ export const featuredPorfolio = [
     img: "photes/vanilla/Shall-App.png",
     ip: "https://midrra.github.io/Shala-App/",
   },
-];
-
-export const webPortfolio = [
   {
-    id: 1,
-    title: "Netflix App",
-    img: "photes/React/React-App.png",
-    ip: "https://netflix-clone-b4749.web.app/",
+    id: 5,
+    title: "Ruben Kuipers",
+    img: "photes/vanilla/Portfolio.png",
+    ip: "https://moonlit-crepe-f1b6f7.netlify.app/",
   },
   {
-    id: 2,
+    id: 6,
+    title: "Arichitect",
+    img: "photes/vanilla/Arichitect.png",
+    ip: "https://midrra.github.io/Architecture-website/",
+  },
+  {
+    id: 7,
+    title: "Anime",
+    img: "photes/vanilla/Anime.png",
+    ip: "https://3nime-app.netlify.app/",
+  },
+  {
+    id: 8,
+    title: "University",
+    img: "photes/vanilla/University.png",
+    ip: "https://university-a5e26.web.app/",
+  },
+  {
+    id: 9,
+    title: "F-rest",
+    img: "photes/vanilla/Acadimey.png",
+    ip: "https://midrra.github.io/Restaurant-website/",
+  },
+
+  {
+    id: 10,
+    title: "Boost",
+    img: "photes/vanilla/Boost.png",
+    ip: "https://jade-rugelach-51c554.netlify.app/",
+  },
+  {
+    id: 11,
     title: "Tesla App",
     img: "photes/React/tesla.png",
-  }
-  // {
-  //   id: 3,
-  //   title: "Rom-Shopping",
-  //   img: "Rom-Shopping-app-c3235.web.app",
-  // },
-  // {
-  //   id: 4,
-  //   title: "Web E-commerce Web Design",
-  //   img: "photes/img-2.jpg",
-  // },
+    ip: "https://tesla-app-c31f2.web.app",
+  },
+  {
+    id: 12,
+    title: "EasyBank",
+    img: "photes/vanilla/bank.png",
+    ip: "https://dazzling-rugelach-bbfd5d.netlify.app/",
+  },
 ];
-
-// export const mobilePortfolio = [
-//   {
-//     id: 1,
-//     title: "Mobile Social Media App",
-//     img: "photes/img-3.jpg",
-//   },
-//   {
-//     id: 2,
-//     title: "Mobile Rampa UI  Desing",
-//     img: "photes/img-3.jpg",
-//   },
-//   {
-//     id: 3,
-//     title: "Mobile Marketing",
-//     img: "photes/img-3.jpg",
-//   },
-//   {
-//     id: 4,
-//     title: "Mobile E-commerce Web Design",
-//     img: "photes/img-3.jpg",
-//   },
-//   {
-//     id: 5,
-//     title: "Mobile Hero Web Design",
-//     img: "photes/img-3.jpg",
-//   },
-//   {
-//     id: 6,
-//     title: "Mobile Banking App",
-//     img: "photes/img-3.jpg",
-//   },
-// ];
-
-// export const designPortfolio = [
-//   {
-//     id: 1,
-//     title: "Design Social Media App",
-//     img: "photes/img-4.jpg",
-//   },
-//   {
-//     id: 2,
-//     title: "Design Rampa UI  Desing",
-//     img: "photes/img-4.jpg",
-//   },
-//   {
-//     id: 3,
-//     title: "Design Marketing",
-//     img: "photes/img-4.jpg",
-//   },
-//   {
-//     id: 4,
-//     title: "Design E-commerce Web Design",
-//     img: "photes/img-4.jpg",
-//   },
-//   {
-//     id: 5,
-//     title: "Design Hero Web Design",
-//     img: "photes/img-4.jpg",
-//   },
-//   {
-//     id: 6,
-//     title: "Design Banking App",
-//     img: "photes/img-4.jpg",
-//   },
-// ];
-
-// export const contentPortfolio = [
-//   {
-//     id: 1,
-//     title: "Content Social Media App",
-//     img: "photes/img-5.jpg",
-//   },
-//   {
-//     id: 2,
-//     title: "Content Rampa UI  Desing",
-//     img: "photes/img-5.jpg",
-//   },
-//   {
-//     id: 3,
-//     title: "Content Marketing",
-//     img: "photes/img-5.jpg",
-//   },
-//   {
-//     id: 4,
-//     title: "Content E-commerce Web Design",
-//     img: "photes/img-5.jpg",
-//   },
-//   {
-//     id: 5,
-//     title: "Content Hero Web Design",
-//     img: "photes/img-5.jpg",
-//   },
-//   {
-//     id: 6,
-//     title: "Content Banking App",
-//     img: "photes/img-5.jpg",
-//   },
-// ];

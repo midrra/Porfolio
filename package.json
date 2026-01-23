@@ -1,24 +1,22 @@
 {
-  "name": "react-complete-guid",
-  "homepage": "https://midrra.github.io/Portfolio",
+  "name": "join",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
-    "@emotion/react": "^11.10.0",
-    "@emotion/styled": "^11.10.0",
-    "@mui/icons-material": "^5.8.4",
-    "@mui/material": "^5.10.0",
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.1.1",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^6.4.6",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^13.5.0",
     "firebase": "^11.3.1",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-router": "^7.1.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.2.0",
     "react-scripts": "5.0.1",
-    "react-transition-group": "^4.4.5",
-    "sass": "^1.85.0",
+    "sass": "^1.85.1",
     "typewriter-effect": "^2.21.0",
     "web-vitals": "^2.1.4"
   },
@@ -26,9 +24,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -47,9 +43,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "dart-sass": "^1.25.0",
-    "gh-pages": "^6.3.0"
   }
 }

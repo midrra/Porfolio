@@ -1,6 +1,6 @@
 import React from "react";
-import Portfolio from "../compontents/Portfolio/Portfolio";
-import Footer from "../compontents/footer/Footer";
+import Portfolio from "../components/Portfolio/Portfolio";
+import Footer from "../components/footer/Footer";
 
 function Porto() {
   return (
