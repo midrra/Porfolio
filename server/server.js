@@ -47,5 +47,5 @@ app.use("/api/captch",captch)
 app.get("/",(req,res)=>{
   console.log("the server is running")
 })
-app.listen(3000, console.log("here we go"));
-// export default app;
+// app.listen(3000, console.log("here we go"));
+export default app;
