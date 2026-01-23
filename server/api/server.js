@@ -45,7 +45,6 @@ app.use("/auth", authRoutes);
 app.use("/home", homeRotues);
 app.use("/api/captch",captch)
 app.get("/",(req,res)=>{
-  console.log("the server is running")
+  res.send("API is working on Vercel 🚀");
 })
-// app.listen(3000, console.log("here we go"));
 export default app;
