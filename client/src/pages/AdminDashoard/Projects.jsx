@@ -14,6 +14,7 @@ function Projects() {
       try {
         const res = await api.get("/dashboard/projects");
         setAllProjects(res.data.fullProjects);
+        console.log(res.data.fullProjects)
 
         setisEmpty(res.data.fullProjects.length === 0);
       } catch (err) {

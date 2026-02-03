@@ -14,18 +14,10 @@ import authRoutes from "../routes/authRoutes.js";
 import homeRotues from "../routes/homeRoutes.js";
 import captch from "../routes/captch.js"
 
+import upload, { cloudinary } from "../middlewares/upload.js";
+
 const app = express();
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "uploads/"); 
-  },
-  filename: function (req, file, cb) {
-    cb(null, file.originalname);
-  },
-});
-
-const upload = multer({ storage: storage });
 app.use(
   cors({
     origin:[ "https://portfolio-app-deb9b.web.app","http://localhost:5173"],
@@ -35,10 +27,8 @@ app.use(
 
 app.use(cookieParser());
 app.use(express.json());
-app.use(bodyParser.json());
 
-app.use("/uploads", express.static("uploads"));
-app.use("/dashboard", upload.single("image"), dashboardRoute);
+app.use("/dashboard", upload.single("image"),dashboardRoute)
 
 
 app.use("/auth", authRoutes);
@@ -48,3 +38,7 @@ app.get("/",(req,res)=>{
   res.send("API is working on Vercel 🚀");
 })
 export default app;
+// app.listen(3000,()=>{
+//   console.log("the server is doing well")
+// })
+cloudinary

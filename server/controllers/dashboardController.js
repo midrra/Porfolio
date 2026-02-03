@@ -1,15 +1,19 @@
 import { Porto } from "../models/Porto.js";
 import path from "path";
 import fs from "fs";
+import { cloudinary } from "../middlewares/upload.js";
 
 export const newProject = async (req, res, next) => {
   try {
-    const normalizedPath = req.file.path.replace(/\\/g, "/");
+    if (!req.file) {
+  return res.status(400).json({ error: "No file uploaded" });
+}
     await Porto.create({
       name: req.body.name,
       url: req.body.url,
       section: req.body.section,
-      image: normalizedPath,
+      image: req.file.path,
+      imagePublicId:req.file.filename
     });
 
     res.json({ message: "File uploaded successfully", file: req.file });
@@ -31,10 +35,7 @@ export const projects = async (req, res) => {
   try {
     const fullProjects = projects.map((p) => ({
       ...p._doc,
-      image: `${req.protocol}://${req.get("host")}/${p.image.replace(
-        /\\/g,
-        "/"
-      )}`,
+      image:p.image
     }));
 
     return res.status(200).json({ message: "All projcts", fullProjects });
@@ -49,12 +50,15 @@ export const removeProject = async (req, res) => {
     if (!project) {
       return res.status(404).json({ message: "Project not found" });
     }
-    const imagePath = path.join(project.image);
-    fs.unlink(imagePath, (err) => {
-      if (err) {
-        return res.status(500).json({ message: "something went wrong" });
+
+    // Delete image from Cloudinary
+    if (project.imagePublicId) {
+      try {
+        const result = await cloudinary.uploader.destroy(project.imagePublicId);
+      } catch (err) {
+        console.error("Cloudinary delete failed:", err);
       }
-    });
+    }
 
     await Porto.findByIdAndDelete(req.params.id);
     return res.status(200).json("Project deleted successfully");
