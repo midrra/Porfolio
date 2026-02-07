@@ -11,7 +11,7 @@ const About = () => {
             My name is Mohamed Awad I am a highly skilled and passionate
             Front-End Developer, specializing in crafting dynamic, responsive,
             and high-performance web applications. With expertise in HTML, CSS,
-            JavaScript, and React, I transform ideas into seamless digital
+            JavaScript, React, node js, mongoDB,Git ,and Github, I transform ideas into seamless digital
             experiences. My commitment to clean code, innovation, and
             cutting-edge technology drives me to build exceptional user
             interfaces that stand out.

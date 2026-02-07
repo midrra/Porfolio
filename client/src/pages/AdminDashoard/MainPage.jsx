@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import api from "../../api/axios";
 import { Button } from "@/components/Login/ui/button";
 import { useNavigate, useParams } from "react-router-dom";
+import { Spinner } from "@/components/Login/ui/spinner";
 
 function MainPage() {
   const [inputValue, setInputValue] = useState("");
@@ -10,6 +11,7 @@ function MainPage() {
   const [file, setFile] = useState("");
   const [editData, setEditData] = useState("");
   const [buttonText, setButtonText] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -44,11 +46,11 @@ function MainPage() {
     const getEditData = async () => {
       try {
         if (!id) return;
+
         const res = await api.get(`dashboard/edit/${id}`);
         setEditData(res.data.data);
       } catch (err) {
-         console.error(err.response.data.message||err.message);
-
+        console.error(err.response.data.message || err.message);
       }
     };
     getEditData();
@@ -64,11 +66,14 @@ function MainPage() {
 
     try {
       if (id) {
+        setLoading(true);
+
         const data = await api.put(`dashboard/editing/${id}`, formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
         });
+        setLoading(false);
 
         setEditData(null);
         setInputValue("");
@@ -79,11 +84,13 @@ function MainPage() {
         return navigate("/admin-dashboard/projects");
       }
 
+      setLoading(true)
       const res = await api.post("/dashboard/newproject", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
+      setLoading(false)
 
       setInputValue("");
       setUrlValue("");
@@ -91,9 +98,9 @@ function MainPage() {
       setFile(null);
       e.target.reset();
 
-      navigate("/admin-dashboard/projects")
+      navigate("/admin-dashboard/projects");
     } catch (err) {
-      console.error(err.response.data.message||err.message);
+      console.error(err.response.data.message || err.message);
     }
   };
 
@@ -128,9 +135,15 @@ function MainPage() {
             onChange={(e) => setFile(e.target.files[0])}
             className="text-gray-800 w-1/2 border-1 border-blue-500 pl-2 rounded-lg outline-0  focus:border-2 md:py-10 py-5"
           />
-          <Button className="cursor-pointer h-10 mb-4 bg-blue-500 text-white block">
-            {buttonText}
-          </Button>
+          {loading ? (
+            <div className="h-10 mb-4 bg-blue-500 text-white w-15 rounded flex justify-center items-center">
+            <Spinner />
+            </div>
+           ) : ( 
+            <Button className="cursor-pointer h-10 mb-4 bg-blue-500 text-white block">
+              {buttonText}
+            </Button> 
+          )} 
         </form>
       </div>
     </div>

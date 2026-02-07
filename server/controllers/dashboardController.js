@@ -83,14 +83,13 @@ export const editProject = async (req, res) => {
     const { id } = req.params;
     const checkImage = await Porto.findById(id);
 
-    const normalizedPath = req.file.path.replace(/\\/g, "/");
-
-    const imagePath = path.join(checkImage.image);
-    fs.unlink(imagePath, (err) => {
-      if (err) {
-        return res.status(500).json({ message: "something went wrong" });
+     if (checkImage.imagePublicId) {
+      try {
+        const result = await cloudinary.uploader.destroy(checkImage.imagePublicId);
+      } catch (err) {
+        return res.status(500).json({message:"Cloudinary delete failed:", err});
       }
-    });
+    }
 
     const data = await Porto.findByIdAndUpdate(
       id,
@@ -98,7 +97,8 @@ export const editProject = async (req, res) => {
         name: req.body.name,
         url: req.body.url,
         section: req.body.section,
-        image: normalizedPath,
+        image: req.file.path,
+        imagePublicId:req.file.filename
       },
       { new: true }
     );
